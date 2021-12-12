@@ -1,0 +1,92 @@
+body{
+    display: flex;
+    background-color: #121212;
+    color: white;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.read-toggle{
+    background-color: rgba(128, 0, 0, 0.5);
+    text-align: center;
+}
+
+.read-toggle.has-read{
+    background-color: rgba(0, 128, 0, 0.5);
+    text-align: center;
+}
+
+.read-toggle:hover{
+    box-shadow: 2px 2px 2px #aaaaaa;
+    filter: brightness(1.3)
+}
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th{
+    border: 1px solid #363636;
+    text-align: left;
+    padding: 8px;
+
+}
+
+tr:nth-child(even){
+    background-color: #242424;
+}
+
+.current-books{
+    margin: 20px;
+}
+
+.book-add{
+    margin: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #363636;
+    padding: 10px;
+}
+
+.read-ask{
+    display: flex;
+}
+
+.form-group{
+    margin: 5px;
+}
+
+label{
+    display: inline-block;
+    width: 45px;
+}
+
+#submit{
+    width: 75px;
+}
+
+#delete-header{
+    text-align: center;
+    border: none;
+}
+.delete-button{
+    text-align: center;
+    border:none;
+    background-color: #242424;
+}
+
+.delete-button:hover{
+    filter: brightness(1.3);
+}
