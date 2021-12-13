@@ -1,3 +1,4 @@
+"use strict-mode"
 const table = document.querySelector(".book-table")
 const submitButton = document.querySelector("#submit")
 const formTitle = document.querySelector("#title")
@@ -26,11 +27,10 @@ Book.prototype.info = function(){
     return `${this.title} by ${this.author}, ${this.pages} pages. ${readText}`
 }
 
-function addBookToLibrary(book){
+const addBookToLibrary = function addBookToLibraryAndTable(book){
     let newLength = myLibrary.push(book)
     let newRow = document.createElement("tr")
     newRow.dataset.index = newLength - 1
-    console.log(newRow.dataset.index)
     let newTitle = document.createElement("td")
     let newAuthor = document.createElement("td")
     let newPages = document.createElement("td")
@@ -69,7 +69,7 @@ function addBookToLibrary(book){
     newRow.append(newTitle, newAuthor, newPages, newRead, deleteButton)
 }
 
-function deleteBook(index){
+const deleteBook = function deleteBookFromLibaryAndTable(index){
     tableIndex = index + 2
     myLibrary.splice(index, 1)
     table.childNodes[tableIndex].remove()
@@ -81,7 +81,7 @@ function deleteBook(index){
     })
 }
 
-function toggleRead(index){
+const toggleRead = function toggleReadStatus(index){
     tableIndex = index + 2
     myLibrary[index].hasRead = !myLibrary[index].hasRead
 
