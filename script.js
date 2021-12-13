@@ -86,7 +86,7 @@ submitButton.addEventListener("click", (e) => {
     const title = formTitle.value
     const author = formAuthor.value
     const pages = formPages.value
-    const hasRead
+    let hasRead
     if (title.length > 120 || author.length > 120 || pages > 99999){
         return
     }
