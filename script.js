@@ -21,14 +21,14 @@ const book = (title, author, pages, hasRead) => {
 }
 
 const addBookToLibrary = function addBookToLibraryAndTable(book){
-    let newLength = myLibrary.push(book)
-    let newRow = document.createElement("tr")
+    const newLength = myLibrary.push(book)
+    const newRow = document.createElement("tr")
     newRow.dataset.index = newLength - 1
-    let newTitle = document.createElement("td")
-    let newAuthor = document.createElement("td")
-    let newPages = document.createElement("td")
-    let newRead = document.createElement("td")
-    let deleteButton = document.createElement("td")
+    const newTitle = document.createElement("td")
+    const newAuthor = document.createElement("td")
+    const newPages = document.createElement("td")
+    const newRead = document.createElement("td")
+    const deleteButton = document.createElement("td")
 
     newTitle.innerText = book.title
     newAuthor.innerText = book.author
@@ -44,7 +44,7 @@ const addBookToLibrary = function addBookToLibraryAndTable(book){
     deleteButton.innerText = "𝗑"
     deleteButton.classList.add("delete-button")
     deleteButton.addEventListener("click", (e) => {
-        deleteIndex = parseInt(e.target.parentNode.dataset.index)
+        const deleteIndex = parseInt(e.target.parentNode.dataset.index)
         deleteBook(deleteIndex)
     })
     newRead.addEventListener("click", (e) => {
@@ -83,10 +83,10 @@ const toggleRead = function toggleReadStatus(index){
 
 submitButton.addEventListener("click", (e) => {
     e.preventDefault()
-    let title = formTitle.value
-    let author = formAuthor.value
-    let pages = formPages.value
-    let hasRead
+    const title = formTitle.value
+    const author = formAuthor.value
+    const pages = formPages.value
+    const hasRead
     if (title.length > 120 || author.length > 120 || pages > 99999){
         return
     }
