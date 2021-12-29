@@ -8,16 +8,16 @@ const formHasReadOptions = document.querySelectorAll('input[name="has-read"]')
 
 const myLibrary = []
 
-const book = (title, author, pages, hasRead) => {
-    const info = () =>{
-        let readText = ""
-        if (hasRead){
-            readText = "Yes"
-        }
-        else readText = "No"
-        return `${title} by ${author}, ${pages} pages. Read: ${readText}.`
+class Book {
+    constructor(title, author, pages, hasRead){
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.hasRead = hasRead
     }
-    return {title, author, pages, hasRead, info}
+    info() {
+        return `${title} by ${author}, ${pages} pages. Read: ${hasRead}.`
+    }
 }
 
 const addBookToLibrary = function addBookToLibraryAndTable(book){
@@ -101,16 +101,16 @@ submitButton.addEventListener("click", (e) => {
     if (!title || !author || !pages){
         return
     }
-    const newBook = book(title, author, pages, hasRead)
+    const newBook = new Book(title, author, pages, hasRead)
     addBookToLibrary(newBook, myLibrary)
 
     document.forms["book-form"].reset()
 })
 
 
-const theHobbit = book("The Hobbit", "JRR Tolkien", 304, true)
-const fellowship = book("The Lord of the Rings: The Fellowship of the Ring", "JRR Tolkien", 423, true)
-const wheelOfTime = book("The Eye of the World", "Robert Jordan", 782, false)
+const theHobbit = new Book("The Hobbit", "JRR Tolkien", 304, true)
+const fellowship = new Book("The Lord of the Rings: The Fellowship of the Ring", "JRR Tolkien", 423, true)
+const wheelOfTime = new Book("The Eye of the World", "Robert Jordan", 782, false)
 
 addBookToLibrary(theHobbit, myLibrary)
 addBookToLibrary(fellowship, myLibrary)
