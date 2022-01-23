@@ -1,10 +1,5 @@
 const table = document.querySelector(".book-table");
-const submitButton = document.querySelector("#submit");
 const form = document.querySelector("form");
-const formTitle = document.querySelector("#title");
-const formAuthor = document.querySelector("#author");
-const formPages = document.querySelector("#pages");
-const formHasReadOptions = document.querySelectorAll('input[name="has-read"]');
 
 const myLibrary = [];
 
@@ -77,29 +72,17 @@ const toggleRead = function toggleReadStatus(index) {
   myLibrary[index].hasRead = !myLibrary[index].hasRead;
 };
 
-submitButton.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  const title = formTitle.value;
-  const author = formAuthor.value;
-  const pages = formPages.value;
-  let hasRead;
-  //   if (title.length > 120 || author.length > 120 || pages > 99999) {
-  //     return;
-  //   }
-  if (formHasReadOptions[0].checked) {
-    hasRead = true;
-  } else if (formHasReadOptions[1].checked) {
-    hasRead = false;
-  } else return;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = form.title.value;
+  const author = form.author.value;
+  const pages = form.pages.value;
+  const hasRead = form.read.value === "true" ? true : false;
 
-  //   if (!title || !author || !pages) {
-  //     return;
-  //   }
-  console.log(pages);
   const newBook = new Book(title, author, pages, hasRead);
   addBookToLibrary(newBook, myLibrary);
 
-  document.forms["book-form"].reset();
+  form.reset();
 });
 
 const theHobbit = new Book("The Hobbit", "JRR Tolkien", 304, true);
